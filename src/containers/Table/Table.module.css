@@ -1,0 +1,67 @@
+.Table {
+  width: 770px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 40px;
+  background-color: #fff;
+}
+
+.TableHeader{
+
+  font-weight: 400;
+  font-size: 14px;
+  color: #5D6D97;
+}
+
+.TableData {
+  font-weight: 400;
+  font-size: 14px;
+  color: #5D6D97;
+  text-align: center;
+}
+
+.TableHeaderRow{
+  padding-top: 16px;
+  padding-bottom: 32px;
+}
+
+
+.TableDataRow{
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid rgba(93, 110, 151, 0.4);
+}
+
+.TableData:last-child > .TableDataRow{
+  border-bottom: none;
+}
+
+.TableBtnContainer{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.TableSaveBtn{
+  background-color: #29c27b
+}
+
+.TableSaveBtn:hover{
+  background-color: #00f784
+}
+
+.TableCalcBtn{
+  background-color: #dde01a
+}
+
+.TableCalcBtn:hover{
+  background-color: #f1b204
+}
+
+.TableNote {
+  text-align: center;
+  font-size: 24px;
+  color: #5D6D97;
+  font-weight: 400;
+
+}
