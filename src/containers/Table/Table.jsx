@@ -24,18 +24,20 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
   useEffect(() => {
     axios.get('http://94.250.248.169:3001/api/get').then(response => {
 
-      console.log(response)
       let arr = []
 
-      response.data.forEach(item => {
-        let obj = {}
+      if(response.data.length){
+        response.data.forEach(item => {
+          let obj = {}
 
-        obj.UserID = item.UserID
-        obj.Data_Registration = item.Data_Registration.slice(0, 10).split('-').reverse().join('-')
-        obj.Last_Activity = item.Last_Activity.slice(0, 10).split('-').reverse().join('-')
+          obj.UserID = item.UserID
+          obj.Data_Registration = item.Data_Registration.slice(0, 10).split('-').reverse().join('-')
+          obj.Last_Activity = item.Last_Activity.slice(0, 10).split('-').reverse().join('-')
 
-        arr.push(obj)
-      })
+          arr.push(obj)
+        })
+      }
+
 
       setIsLoaded(true)
       renderData(arr)
@@ -47,7 +49,11 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
 
     axios.get('http://94.250.248.169:3001/api/calc').then(resp => {
 
-      let rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100)
+      let rec = 0
+
+      if(resp.data.length){
+        rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100)
+      }
 
       setRetention(rec)
     })
