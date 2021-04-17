@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button'
 import {connect} from 'react-redux'
 import {addToTable, changeUserId, changeRegData, changeLastAct, addNewData} from '../../redux/actions/actions'
 import {validate} from '../../helpers/helpers'
-import axios from 'axios'
+
 
 const AddLine = ({tableData, addLine, userId, RegDate, LastAct, changeId, changeReg, changeAct, newInfo, addNew}) => {
 

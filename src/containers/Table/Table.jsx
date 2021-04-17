@@ -2,17 +2,17 @@ import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import classes from './Table.module.css'
 import Button from '../../components/Button/Button'
-import {clearNewData, addToTable} from '../../redux/actions/actions'
+import {clearNewData, addToTable, clearTable} from '../../redux/actions/actions'
 import axios from 'axios'
 import Loader from "react-loader-spinner";
 
-const Table = ({tableData, newInfo, clearNew, renderData}) => {
+const Table = ({tableData, newInfo, clearNew, renderData, clearData}) => {
 
   const [retention, setRetention] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
 
   const sendData = () => {
-    axios.post('http://94.250.248.169:3001/api/insert', {
+    axios.post('https://tranquil-atoll-99499.herokuapp.com/api/insert', {
       newInfo
     }).then(() => {
       alert('Successful insert')
@@ -22,7 +22,7 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
   };
 
   useEffect(() => {
-    axios.get('http://94.250.248.169:3001/api/get').then(response => {
+    axios.get('https://tranquil-atoll-99499.herokuapp.com/api/get').then(response => {
 
       let arr = []
 
@@ -47,7 +47,7 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
 
   const calculate = () => {
 
-    axios.get('http://94.250.248.169:3001/api/calc').then(resp => {
+    axios.get('https://tranquil-atoll-99499.herokuapp.com/api/calc').then(resp => {
 
       let rec = 0
 
@@ -56,6 +56,13 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
       }
 
       setRetention(rec)
+    })
+  }
+
+  const clear = () => {
+
+    axios.get('https://tranquil-atoll-99499.herokuapp.com/api/delete').then(resp => {
+      clearData()
     })
   }
 
@@ -105,6 +112,10 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
         <Button title="Calculate" className={classes.TableCalcBtn} onClick={() => {
           calculate();
         }}/>
+
+        <Button title="Clear" className={classes.TableClearBtn} onClick={() => {
+          clear();
+        }}/>
       </div>
       {retention ? <p className={classes.TableNote}>Rolling Retention 7 day = {retention}%</p> : null}
 
@@ -124,7 +135,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     clearNew: () => {dispatch(clearNewData())},
-    renderData: (data) => {dispatch(addToTable(data))}
+    renderData: (data) => {dispatch(addToTable(data))},
+    clearData: () => {dispatch(clearTable())}
   }
 }
 

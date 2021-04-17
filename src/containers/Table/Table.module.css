@@ -58,6 +58,15 @@
   background-color: #f1b204
 }
 
+.TableClearBtn{
+  background-color: #dd4834
+}
+
+.TableClearBtn:hover{
+  background-color: #db2912
+}
+
+
 .TableNote {
   text-align: center;
   font-size: 24px;

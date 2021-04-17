@@ -1,4 +1,4 @@
-import { SHOW_LOADER, HIDE_LOADER, ADD_TOTABLE, ADD_NEWDATA, CLEAR_NEWDATA, CHANGE_REGDATE, CHANGE_LASTACTIVEDATA, CHANGE_USERID } from '../types'
+import { SHOW_LOADER, HIDE_LOADER, ADD_TOTABLE, ADD_NEWDATA, CLEAR_NEWDATA, CHANGE_REGDATE, CHANGE_LASTACTIVEDATA, CHANGE_USERID, CLEAR_TABLE } from '../types'
 
 
 export const showLoader = () => {
@@ -54,3 +54,8 @@ export const clearNewData = () => {
   }
 }
 
+export const clearTable = () => {
+  return {
+    type: CLEAR_TABLE
+  }
+}
