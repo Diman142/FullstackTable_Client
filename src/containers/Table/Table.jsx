@@ -12,7 +12,7 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   const sendData = () => {
-    axios.post('http://localhost:3001/api/insert', {
+    axios.post('http://94.250.248.169:3001/api/insert', {
       newInfo
     }).then(() => {
       alert('Successful insert')
@@ -22,7 +22,7 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/get').then(response => {
+    axios.get('http://94.250.248.169:3001/api/get').then(response => {
 
       console.log(response)
       let arr = []
@@ -45,7 +45,7 @@ const Table = ({tableData, newInfo, clearNew, renderData}) => {
 
   const calculate = () => {
 
-    axios.get('http://localhost:3001/api/calc').then(resp => {
+    axios.get('http://94.250.248.169:3001/api/calc').then(resp => {
 
       let rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100)
 
