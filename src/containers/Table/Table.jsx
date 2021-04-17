@@ -49,9 +49,11 @@ const Table = ({tableData, newInfo, clearNew, renderData, clearData}) => {
 
     axios.get('https://tranquil-atoll-99499.herokuapp.com/api/calc').then(resp => {
 
+      console.log(resp)
+
       let rec = 0
 
-      if(resp.data.length){
+      if(resp.data.length > 1){
         rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100)
       }
 

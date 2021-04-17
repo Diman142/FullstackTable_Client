@@ -25,6 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap"
     rel="stylesheet">
+
+
   <title>Table App</title>
 </head>
 
@@ -41,6 +43,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDTxWLjo-XvEtpjq9myD036uc0zQSglWh0",
+      authDomain: "fullstacktable.firebaseapp.com",
+      projectId: "fullstacktable",
+      storageBucket: "fullstacktable.appspot.com",
+      messagingSenderId: "452313172891",
+      appId: "1:452313172891:web:0e81d7996ac56bb23e6f3e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
 </body>
 
 </html>
