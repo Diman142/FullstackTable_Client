@@ -97,3 +97,16 @@ input::-webkit-inner-spin-button {
 .tac{
   text-align: center;
 }
+
+.validText {
+  color: red;
+  margin-bottom: 0;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mt-40{
+  margin-top: 40px;
+}

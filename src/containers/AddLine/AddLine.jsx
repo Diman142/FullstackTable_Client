@@ -38,7 +38,7 @@ const AddLine = ({tableData, addLine, userId, RegDate, LastAct, changeId, change
       </div>
 
 
-      <Button disClass="btn-dis" type="submit" title="Add user" disabled={!isValid} onClick={(event) => {
+      <Button disClass="btn-dis" type="submit" title="Add user" disabled={!isValid} className="mt-40" onClick={(event) => {
         event.preventDefault()
 
         let currentData = [...tableData]

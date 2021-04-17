@@ -17,7 +17,7 @@ const Input = ({type="text", value, className="", placeholder, onChange, id, lab
 
   return (
     <>
-      <label htmlFor={id} className={labelClasses}>
+      <label htmlFor={id} className={labelClasses} style={{position: 'relative'}}>
         {label}
         <input className={classes} type={type} value={value} placeholder={placeholder} onChange={(event) => {
           if(!validate(event.target.value, validType)){
@@ -29,7 +29,7 @@ const Input = ({type="text", value, className="", placeholder, onChange, id, lab
           }
           onChange(event.target.value)
         }} id={id}/>
-        {!isValid ? <p style={{color: "red", marginBottom: 0}}>{errMessage}</p>: null}
+        {!isValid ? <p className="validText">{errMessage}</p>: null}
       </label>
 
     </>
