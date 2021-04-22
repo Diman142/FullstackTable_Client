@@ -55,10 +55,13 @@ const Table = ({ tableData, newInfo, clearNew, renderData, clearData }) => {
   const calculate = () => {
     axios.get('https://tranquil-atoll-99499.herokuapp.com/api/calc').then((resp) => {
 
+
+
+
       let rec = 0;
 
       if (resp.data.length > 1) {
-        rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100);
+        rec = Math.trunc((+resp.data[0].users / +resp.data[1].users) * 100);
 
         if(rec === 0){
           rec = rec.toString()
@@ -67,7 +70,9 @@ const Table = ({ tableData, newInfo, clearNew, renderData, clearData }) => {
         rec = "0"
       }
 
-
+      if(!rec){
+        rec = "0"
+      }
       setRetention(rec);
     });
   };
