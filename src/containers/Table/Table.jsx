@@ -59,7 +59,14 @@ const Table = ({ tableData, newInfo, clearNew, renderData, clearData }) => {
 
       if (resp.data.length > 1) {
         rec = Math.trunc((+resp.data[1].users / +resp.data[0].users) * 100);
+
+        if(rec === 0){
+          rec = rec.toString()
+        }
+      } else {
+        rec = "0"
       }
+
 
       setRetention(rec);
     });
